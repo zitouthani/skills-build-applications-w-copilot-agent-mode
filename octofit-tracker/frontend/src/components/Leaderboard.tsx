@@ -1,3 +1,4 @@
+import { getJson } from '../api/client.js';
 import { useApiData } from '../hooks/useApiData.js';
 
 type LeaderboardEntry = {
@@ -9,7 +10,7 @@ type LeaderboardEntry = {
 type LeaderboardResponse = { leaderboard: LeaderboardEntry[] };
 
 export default function Leaderboard() {
-  const result = useApiData<LeaderboardResponse>('/api/leaderboard');
+  const result = useApiData<LeaderboardResponse>('/api/leaderboard', getJson<LeaderboardResponse>);
 
   return (
     <section aria-labelledby="leaderboard-heading">

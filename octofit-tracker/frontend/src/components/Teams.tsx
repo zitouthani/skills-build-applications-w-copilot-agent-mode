@@ -1,3 +1,4 @@
+import { getJson } from '../api/client.js';
 import { useApiData } from '../hooks/useApiData.js';
 
 type Team = {
@@ -9,7 +10,7 @@ type Team = {
 type TeamResponse = { teams: Team[] };
 
 export default function Teams() {
-  const result = useApiData<TeamResponse>('/api/teams');
+  const result = useApiData<TeamResponse>('/api/teams', getJson<TeamResponse>);
 
   return (
     <section aria-labelledby="teams-heading">

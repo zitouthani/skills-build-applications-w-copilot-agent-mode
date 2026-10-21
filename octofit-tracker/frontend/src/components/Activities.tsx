@@ -1,3 +1,4 @@
+import { getJson } from '../api/client.js';
 import { useApiData } from '../hooks/useApiData.js';
 
 type Activity = {
@@ -9,7 +10,7 @@ type Activity = {
 type ActivityResponse = { activities: Activity[] };
 
 export default function Activities() {
-  const result = useApiData<ActivityResponse>('/api/activities');
+  const result = useApiData<ActivityResponse>('/api/activities', getJson<ActivityResponse>);
 
   return (
     <section aria-labelledby="activities-heading">

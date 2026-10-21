@@ -1,18 +1,17 @@
 import { useEffect, useState } from 'react';
-import { getJson } from '../api/client.js';
 
 export type ApiDataState<T> =
   | { status: 'loading' }
   | { status: 'success'; data: T }
   | { status: 'error'; message: string };
 
-export function useApiData<T>(path: string): ApiDataState<T> {
+export function useApiData<T>(path: string, load: (path: string) => Promise<T>): ApiDataState<T> {
   const [state, setState] = useState<ApiDataState<T>>({ status: 'loading' });
 
   useEffect(() => {
     let active = true;
     setState({ status: 'loading' });
-    getJson<T>(path).then(
+    load(path).then(
       (data) => {
         if (active) setState({ status: 'success', data });
       },
@@ -28,7 +27,7 @@ export function useApiData<T>(path: string): ApiDataState<T> {
     return () => {
       active = false;
     };
-  }, [path]);
+  }, [load, path]);
 
   return state;
 }
