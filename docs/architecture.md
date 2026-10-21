@@ -44,6 +44,6 @@ Run the focused tier tests first, then builds. Data or API failures indicate a p
 
 - Data tier: `npm run test:data --prefix octofit-tracker/backend` — passed (5 tests).
 - API tier: `npm run test:api --prefix octofit-tracker/backend` — passed (4 tests).
-- Presentation tier: `npm test --prefix octofit-tracker/frontend` — currently fails (15 tests); the page components still show “Implementation pending” instead of fetching and rendering API data and states.
+- Presentation tier: `npm test --prefix octofit-tracker/frontend` — passed (15 tests); all four pages fetch and render API data with accessible loading, empty, success, and error states.
 - Backend type-check: `npm run build --prefix octofit-tracker/backend` — passed.
 - Frontend type-check and production build: `npm run build --prefix octofit-tracker/frontend` — passed.

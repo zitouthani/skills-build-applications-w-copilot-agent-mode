@@ -13,6 +13,22 @@
 			],
 			"isBackground": true,
 			"problemMatcher": []
+		},
+		{
+			"label": "OctoFit Frontend (port 5173)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"--prefix",
+				"octofit-tracker/frontend",
+				"run",
+				"dev",
+				"--",
+				"--host",
+				"0.0.0.0"
+			],
+			"isBackground": true,
+			"problemMatcher": []
 		}
 	]
 }
