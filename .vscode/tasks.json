@@ -1,0 +1,18 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "OctoFit Backend (port 8000)",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"--prefix",
+				"octofit-tracker/backend",
+				"run",
+				"dev"
+			],
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}
